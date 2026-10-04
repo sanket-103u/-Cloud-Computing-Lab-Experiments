@@ -24,9 +24,9 @@ The experiment uses **Proxmox VE** as the Type-1 hypervisor and **VMware Worksta
 
 ### Hardware
 
-- Computer or server capable of supporting hardware virtualization.
-- Sufficient CPU, RAM, and storage.
-- Network connectivity where required.
+* Computer or server capable of supporting hardware virtualization.
+* Sufficient CPU, RAM, and storage.
+* Network connectivity where required.
 
 ### Software
 
@@ -63,18 +63,17 @@ A Type-2 hypervisor runs as an application on top of a host operating system and
 
 ## 5.1 Type-1 Hypervisor Architecture
 
-```
+```text
 Physical Hardware
         ↓
-    Proxmox VE
-  (Type-1 Hypervisor)
+     Proxmox VE
+   (Type-1 Hypervisor)
         ↓
-   Virtual Machine
+    Virtual Machine
         ↓
-    Ubuntu OS
+     Ubuntu OS
         ↓
 Applications / Benchmark
-
 ```
 
 In a Type-1 architecture, the hypervisor operates directly on the physical hardware and manages the virtual machines and their allocated resources.
@@ -83,20 +82,19 @@ In a Type-1 architecture, the hypervisor operates directly on the physical hardw
 
 ## 5.2 Type-2 Hypervisor Architecture
 
-```
+```text
 Physical Hardware
         ↓
-  Host Operating System
+   Host Operating System
         ↓
- VMware Workstation
-  (Type-2 Hypervisor)
+  VMware Workstation
+   (Type-2 Hypervisor)
         ↓
-   Virtual Machine
+    Virtual Machine
         ↓
-    Ubuntu OS
+     Ubuntu OS
         ↓
 Applications / Benchmark
-
 ```
 
 In a Type-2 architecture, the hypervisor runs as an application above the host operating system and provides virtualization to the guest virtual machine.
@@ -140,29 +138,29 @@ An Ubuntu virtual machine is created and configured in the Proxmox environment. 
 
 ### CPU
 
-```
+```bash
 lscpu
 ```
 
 ### Memory
 
-```
+```bash
 free -h
 ```
 
 ### Storage
 
-```
+```bash
 lsblk
 ```
 
-```
+```bash
 df -h
 ```
 
 ### Operating System
 
-```
+```bash
 hostnamectl
 ```
 
@@ -170,7 +168,7 @@ hostnamectl
 
 The CPU benchmark can be performed using:
 
-```
+```bash
 sysbench cpu --cpu-max-prime=20000 run
 ```
 
@@ -232,23 +230,23 @@ An Ubuntu virtual machine is created and configured using VMware Workstation. Th
 
 ## 7.4 System Verification Commands
 
-```
+```bash
 hostnamectl
 ```
 
-```
+```bash
 lscpu
 ```
 
-```
+```bash
 free -h
 ```
 
-```
+```bash
 lsblk
 ```
 
-```
+```bash
 df -h
 ```
 
@@ -256,7 +254,7 @@ df -h
 
 The same benchmark command is used for a fair comparison:
 
-```
+```bash
 sysbench cpu --cpu-max-prime=20000 run
 ```
 
@@ -302,7 +300,7 @@ The CPU benchmark is performed using Sysbench.
 
 The same command should be used in both environments:
 
-```
+```bash
 sysbench cpu --cpu-max-prime=20000 run
 ```
 
@@ -385,41 +383,41 @@ The comparison shows that Type-1 hypervisors operate directly on physical hardwa
 
 ## System Information
 
-```
+```bash
 hostnamectl
 ```
 
-```
+```bash
 lscpu
 ```
 
-```
+```bash
 free -h
 ```
 
-```
+```bash
 lsblk
 ```
 
-```
+```bash
 df -h
 ```
 
 ## Sysbench
 
-```
+```bash
 sudo apt update
 ```
 
-```
+```bash
 sudo apt install sysbench -y
 ```
 
-```
+```bash
 sysbench --version
 ```
 
-```
+```bash
 sysbench cpu --cpu-max-prime=20000 run
 ```
 
@@ -427,7 +425,7 @@ sysbench cpu --cpu-max-prime=20000 run
 
 # 14. Repository Structure
 
-```
+```text
 01-Hypervisor-Analysis/
 │
 ├── README.md
@@ -444,14 +442,13 @@ sysbench cpu --cpu-max-prime=20000 run
         ├── 01-vmware-vm-configuration.png
         ├── 02-vmware-vm-running.png
         └── 03-vmware-system-configuration.png
-
 ```
 
 ---
 
 # 15. Author
 
-**Name:** Abhinandan S Belagavi
+**Name:** Sanket
 
 **Course:** Cloud Computing
 
